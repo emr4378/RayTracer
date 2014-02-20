@@ -15,21 +15,26 @@ World::~World()
 	//}
 }
 
-void World::add(Object3D * obj) {
+void World::add(Object3D* obj)
+{
 	objectList.push_back(obj);
 }
 
-void World::remove(Object3D * obj) {
-	objectList.erase( find(objectList.begin(), objectList.end(), obj) );
+void World::remove(Object3D* obj)
+{
+	objectList.erase(find(objectList.begin(), objectList.end(), obj));
 }
 
-void World::add(LightSource * light) {
+void World::add(LightSource* light)
+{
 	lightList.push_back(light);
 }
 
-void World::remove(LightSource * light) {
-	lightList.erase( find(lightList.begin(), lightList.end(), light) );
+void World::remove(LightSource* light)
+{
+	lightList.erase(find(lightList.begin(), lightList.end(), light));
 }
 
-void World::transformAllObjects(float** m) {
+void World::transformAllObjects(double** m)
+{
 }

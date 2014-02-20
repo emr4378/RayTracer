@@ -9,7 +9,7 @@
 /**
  * Polygon3D
  *
- * Represents a 3D polygon; essentially a range-restricted Plane. 
+ * Represents a 3D polygon; essentially a range-restricted Plane.
  * Should always contain more than 3 points, but is not enforced.
  *
  * @author Eduardo Rodrigues - emr4378
@@ -19,14 +19,14 @@ class Polygon3D :
 {
 public:
 	Polygon3D();
-	Polygon3D(vector<Point3> verts, Vector3 n, Material * m);
-	Polygon3D(vector<Point3> verts, Vector3 n, Texture * t);
-	Polygon3D(vector<Point3> verts, Vector3 n, Material * m, Texture * t);
+	Polygon3D(vector<Point3> verts, Vector3 n, Material* m);
+	Polygon3D(vector<Point3> verts, Vector3 n, Texture* t);
+	Polygon3D(vector<Point3> verts, Vector3 n, Material* m, Texture* t);
 
 	virtual ~Polygon3D();
 
-	float intersect(Ray ray) const;
-	IntersectData evaluateIntersect(Ray ray, float t) const;
+	double intersect(Ray ray) const;
+	IntersectData evaluateIntersect(Ray ray, double t) const;
 
 	vector<Point3> vertices;
 	Vector3 normal;

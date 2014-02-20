@@ -18,14 +18,17 @@ public:
 	Constant() : IlluminationModel() {}
 	~Constant() {}
 
-	Colour illuminate(vector<IntersectData> intersects) {
+	Colour illuminate(vector<IntersectData> intersects)
+	{
 		Material& mat = intersects.front().material;
 
 		Colour diffuse;
 
 		vector<IntersectData>::iterator iter;
-		for (iter = intersects.begin(); iter != intersects.end(); iter++) {
-			if (iter->light != 0) {
+		for (iter = intersects.begin(); iter != intersects.end(); iter++)
+		{
+			if (iter->light != 0)
+			{
 				diffuse += iter->light->color * mat.getDiffuse() * (iter->incoming * iter->normal) * kd;
 			}
 		}

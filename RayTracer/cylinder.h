@@ -17,21 +17,21 @@ class Cylinder :
 {
 public:
 	Cylinder();
-	Cylinder(float x, float y, float z,
-			float aX, float aY, float aZ,
-			float r, float minZ, float maxZ,
-			Material * m, Texture * t);
+	Cylinder(double x, double y, double z,
+	         double aX, double aY, double aZ,
+	         double r, double minZ, double maxZ,
+	         Material* m, Texture* t);
 
 	virtual ~Cylinder();
 
-	float intersect(Ray ray) const;
-	IntersectData evaluateIntersect(Ray ray, float t) const;
+	double intersect(Ray ray) const;
+	IntersectData evaluateIntersect(Ray ray, double t) const;
 
 	Point3 center;
 	Vector3 axis;
-	float zMin;
-	float zMax;
-	float radius;
+	double zMin;
+	double zMax;
+	double radius;
 };
 
 #endif

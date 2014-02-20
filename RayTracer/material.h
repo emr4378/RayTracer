@@ -28,187 +28,215 @@
  *
  * @author Eduardo Rodrigues - emr4378
  */
-class Material {
+class Material
+{
 public:
-	Material() : diffuse(DEFAULT_R, DEFAULT_G, DEFAULT_B), 
-				 ambient(DEFAULT_R, DEFAULT_G, DEFAULT_B), 
-				 specular(DEFAULT_S_R, DEFAULT_S_G, DEFAULT_S_B),
-				 ka(DEFAULT_AMB),
-				 kd(DEFAULT_DIFF),
-				 ks(DEFAULT_SPEC),
-				 ke(DEFAULT_SPEC_S),
-				 kr(DEFAULT_REFL),
-				 kt(DEFAULT_TRANS),
-				 n(DEFAULT_REFR) {}
+	Material() : diffuse(DEFAULT_R, DEFAULT_G, DEFAULT_B),
+		ambient(DEFAULT_R, DEFAULT_G, DEFAULT_B),
+		specular(DEFAULT_S_R, DEFAULT_S_G, DEFAULT_S_B),
+		ka(DEFAULT_AMB),
+		kd(DEFAULT_DIFF),
+		ks(DEFAULT_SPEC),
+		ke(DEFAULT_SPEC_S),
+		kr(DEFAULT_REFL),
+		kt(DEFAULT_TRANS),
+		n(DEFAULT_REFR) {}
 
-	Material(float r, float g, float b) : 
-			diffuse(r, g, b), 
-			ambient(r, g, b), 
-			specular(DEFAULT_S_R, DEFAULT_S_G, DEFAULT_S_B),
-			ka(DEFAULT_AMB),
-			kd(DEFAULT_DIFF),
-			ks(DEFAULT_SPEC),
-			ke(DEFAULT_SPEC_S),
-			kr(DEFAULT_REFL),
-			kt(DEFAULT_TRANS),
-			n(DEFAULT_REFR) {}
+	Material(double r, double g, double b) :
+		diffuse(r, g, b),
+		ambient(r, g, b),
+		specular(DEFAULT_S_R, DEFAULT_S_G, DEFAULT_S_B),
+		ka(DEFAULT_AMB),
+		kd(DEFAULT_DIFF),
+		ks(DEFAULT_SPEC),
+		ke(DEFAULT_SPEC_S),
+		kr(DEFAULT_REFL),
+		kt(DEFAULT_TRANS),
+		n(DEFAULT_REFR) {}
 
-	Material(float r, float g, float b, 
-			float kamb, float kdiff, float kspec, float kspecS, 
-			float kref, float ktrans, float iRefr) : 
-				diffuse(r, g, b), 
-				ambient(r, g, b), 
-				specular(DEFAULT_S_R, DEFAULT_S_G, DEFAULT_S_B),
-				ka(kamb),
-				kd(kdiff),
-				ks(kspec),
-				ke(kspecS),
-				kr(kref),
-				kt(ktrans),
-				n(iRefr) {}
+	Material(double r, double g, double b,
+	         double kamb, double kdiff, double kspec, double kspecS,
+	         double kref, double ktrans, double iRefr) :
+		diffuse(r, g, b),
+		ambient(r, g, b),
+		specular(DEFAULT_S_R, DEFAULT_S_G, DEFAULT_S_B),
+		ka(kamb),
+		kd(kdiff),
+		ks(kspec),
+		ke(kspecS),
+		kr(kref),
+		kt(ktrans),
+		n(iRefr) {}
 
-	Material(Colour col) : 
-			diffuse(col), 
-			ambient(col), 
-			specular(DEFAULT_S_R, DEFAULT_S_G, DEFAULT_S_B),
-			ka(DEFAULT_AMB),
-			kd(DEFAULT_DIFF),
-			ks(DEFAULT_SPEC),
-			ke(DEFAULT_SPEC_S),
-			kr(DEFAULT_REFL),
-			kt(DEFAULT_TRANS),
-			n(DEFAULT_REFR) {}
+	Material(Colour col) :
+		diffuse(col),
+		ambient(col),
+		specular(DEFAULT_S_R, DEFAULT_S_G, DEFAULT_S_B),
+		ka(DEFAULT_AMB),
+		kd(DEFAULT_DIFF),
+		ks(DEFAULT_SPEC),
+		ke(DEFAULT_SPEC_S),
+		kr(DEFAULT_REFL),
+		kt(DEFAULT_TRANS),
+		n(DEFAULT_REFR) {}
 
-	Material(Colour col, 
-			float kamb, float kdiff, float kspec, float kspecS, 
-			float kref, float ktrans, float iRefr) : 
-				diffuse(col), 
-				ambient(col), 
-				specular(DEFAULT_S_R, DEFAULT_S_G, DEFAULT_S_B),
-				ka(kamb),
-				kd(kdiff),
-				ks(kspec),
-				ke(kspecS),
-				kr(kref),
-				kt(ktrans),
-				n(iRefr)  {}
+	Material(Colour col,
+	         double kamb, double kdiff, double kspec, double kspecS,
+	         double kref, double ktrans, double iRefr) :
+		diffuse(col),
+		ambient(col),
+		specular(DEFAULT_S_R, DEFAULT_S_G, DEFAULT_S_B),
+		ka(kamb),
+		kd(kdiff),
+		ks(kspec),
+		ke(kspecS),
+		kr(kref),
+		kt(ktrans),
+		n(iRefr)  {}
 
-	Material(Colour a, Colour d, Colour s, 
-			float kamb, float kdiff, float kspec, float kspecS, 
-			float kref, float ktrans, float iRefr) : 
-				diffuse(d), 
-				ambient(a), 
-				specular(s),
-				ka(kamb),
-				kd(kdiff),
-				ks(kspec),
-				ke(kspecS),
-				kr(kref),
-				kt(ktrans),
-				n(iRefr)  {}
+	Material(Colour a, Colour d, Colour s,
+	         double kamb, double kdiff, double kspec, double kspecS,
+	         double kref, double ktrans, double iRefr) :
+		diffuse(d),
+		ambient(a),
+		specular(s),
+		ka(kamb),
+		kd(kdiff),
+		ks(kspec),
+		ke(kspecS),
+		kr(kref),
+		kt(ktrans),
+		n(iRefr)  {}
 
 	~Material() {}
 
 
 	/*BEGIN: Getters & Setters*/
-	const Colour& getAmbient() const {
+	const Colour& getAmbient() const
+	{
 		return ambient;
 	}
-	Colour& getAmbient() {
+	Colour& getAmbient()
+	{
 		return ambient;
 	}
-	void setAmbient(Colour a) {
+	void setAmbient(Colour a)
+	{
 		ambient = a;
 	}
-	void setAmbient(float r, float g, float b) {
+	void setAmbient(double r, double g, double b)
+	{
 		ambient.r = r;
 		ambient.g = g;
 		ambient.b = b;
 	}
 
-	const Colour& getDiffuse() const {
+	const Colour& getDiffuse() const
+	{
 		return diffuse;
 	}
-	Colour& getDiffuse() {
+	Colour& getDiffuse()
+	{
 		return diffuse;
 	}
-	void setDiffuse(Colour d) {
+	void setDiffuse(Colour d)
+	{
 		diffuse = d;
 	}
-	void setDiffuse(float r, float g, float b) {
+	void setDiffuse(double r, double g, double b)
+	{
 		diffuse.r = r;
 		diffuse.g = g;
 		diffuse.b = b;
 	}
 
-	const Colour& getSpecular() const {
+	const Colour& getSpecular() const
+	{
 		return specular;
 	}
-	Colour& getSpecular() {
+	Colour& getSpecular()
+	{
 		return specular;
 	}
-	void setSpecular(Colour s) {
+	void setSpecular(Colour s)
+	{
 		specular = s;
 	}
-	void setSpecular(float r, float g, float b) {
+	void setSpecular(double r, double g, double b)
+	{
 		specular.r = r;
 		specular.g = g;
 		specular.b = b;
 	}
 
-	float getReflectiveCoeff() {
+	double getReflectiveCoeff()
+	{
 		return kr;
 	}
-	void setReflectiveCoeff(float k) {
+	void setReflectiveCoeff(double k)
+	{
 		kr = k;
 	}
 
-	float getTransmissiveCoeff() {
+	double getTransmissiveCoeff()
+	{
 		return kt;
 	}
-	void setTransmissiveCoeff(float k) {
+	void setTransmissiveCoeff(double k)
+	{
 		kt = k;
 	}
 
-	float getAmbientCoeff() {
+	double getAmbientCoeff()
+	{
 		return ka;
 	}
-	void setAmbientCoeff(float k) {
+	void setAmbientCoeff(double k)
+	{
 		ka = k;
 	}
 
-	float getDiffuseCoeff() {
+	double getDiffuseCoeff()
+	{
 		return kd;
 	}
-	void setDiffuseCoeff(float k) {
+	void setDiffuseCoeff(double k)
+	{
 		kd = k;
 	}
 
-	float getSpecularCoeff() {
+	double getSpecularCoeff()
+	{
 		return ks;
 	}
-	void setSpecularCoeff(float k) {
+	void setSpecularCoeff(double k)
+	{
 		ks = k;
 	}
 
-	float getSpecularSizeCoeff() {
+	double getSpecularSizeCoeff()
+	{
 		return ke;
 	}
-	void setSpecularSizeCoeff(float k) {
+	void setSpecularSizeCoeff(double k)
+	{
 		ke = k;
 	}
 
-	float getRefractionIndex() {
+	double getRefractionIndex()
+	{
 		return n;
 	}
-	void setRefractionIndex(float k) {
+	void setRefractionIndex(double k)
+	{
 		n = k;
 	}
 
-	Colour getAverage() {
-		Colour ret(	(ambient.r + diffuse.r)/2,
-					(ambient.g + diffuse.g)/2,
-					(ambient.b + diffuse.b)/2);
+	Colour getAverage()
+	{
+		Colour ret((ambient.r + diffuse.r) / 2,
+		           (ambient.g + diffuse.g) / 2,
+		           (ambient.b + diffuse.b) / 2);
 		return ret;
 	}
 	/*END: Getters & Setters*/
@@ -219,13 +247,13 @@ protected:
 	Colour diffuse;
 	Colour specular;
 
-	float ka;	//coefficient of ambient light
-	float kd;	//coefficient of diffuse light
-	float ks;	//coefficient of specular light
-	float ke;	//coefficient of specular highlight size/dispersal?
-	float kr;	//coefficient of reflection
-	float kt;	//coefficient of transmission
-	float n;	//index of refraction
+	double ka;	//coefficient of ambient light
+	double kd;	//coefficient of diffuse light
+	double ks;	//coefficient of specular light
+	double ke;	//coefficient of specular highlight size/dispersal?
+	double kr;	//coefficient of reflection
+	double kt;	//coefficient of transmission
+	double n;	//index of refraction
 };
 
 #endif

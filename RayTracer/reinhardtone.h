@@ -3,8 +3,6 @@
 
 #include "tone.h"
 
-#define	LMAX	1000
-#define	LDMAX	100
 #define GRAY	0.18
 
 class ReinhardTone : public Tone
@@ -12,12 +10,13 @@ class ReinhardTone : public Tone
 public:
 
 	ReinhardTone() : Tone(LMAX, LDMAX), a(GRAY) {}
-	ReinhardTone(float lM, float ldM) : Tone(lM, ldM), a(GRAY) {}
+	ReinhardTone(double lM, double ldM) : Tone(lM, ldM), a(GRAY) {}
 	~ReinhardTone() {}
 
-	void reproduce(float avgLum, Colour& col) {
+	void reproduce(double avgLum, Colour& col)
+	{
 		//step 1
-		col *= a/avgLum;
+		col *= a / avgLum;
 
 		//step 2
 		col.r /= (1 + col.r);
@@ -29,16 +28,18 @@ public:
 	}
 
 	/*BEGIN: Getters & Setters*/
-	float getGrayVal() {
+	double getGrayVal()
+	{
 		return a;
 	}
-	void setGrayVal(float n) {
+	void setGrayVal(double n)
+	{
 		a = n;
 	}
 	/*END: Getters & Setters*/
 
 private:
-	float a;	//percent for gray zone V
+	double a;	//percent for gray zone V
 };
 
 #endif

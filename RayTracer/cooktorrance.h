@@ -7,7 +7,7 @@
  * CookTorrance
  *
  * The Cook-Torrance illumination model; a fairly complex illumination model,
- * it uses a distribution function to spread out the specular highlight and 
+ * it uses a distribution function to spread out the specular highlight and
  * make the illumination look more realistic.
  *
  * Unfortunately, this makes it a bit more computationally expensive than other
@@ -19,68 +19,74 @@ class CookTorrance :
 	public IlluminationModel
 {
 public:
-	enum RoughMode { BECKMANN, GAUSSIAN };
+	enum RoughMode { ROUGHMODE_BECKMANN, ROUGHMODE_GAUSSIAN };
 
-	CookTorrance() : IlluminationModel(), roughValue(0.5f), roughMode(RoughMode::BECKMANN) {}
+	CookTorrance() : IlluminationModel(), roughValue(0.5), roughMode(ROUGHMODE_BECKMANN) {}
 
-	CookTorrance(float rVal, RoughMode rMode) : IlluminationModel(), roughValue(rVal), roughMode(rMode) {}
+	CookTorrance(double rVal, RoughMode rMode) : IlluminationModel(), roughValue(rVal), roughMode(rMode) {}
 
-	CookTorrance(Colour * amb) : IlluminationModel(amb) {}
+	CookTorrance(Colour* amb) : IlluminationModel(amb) {}
 
 	~CookTorrance() {}
 
-	Colour illuminate(vector<IntersectData> intersects) {
+	Colour illuminate(vector<IntersectData> intersects)
+	{
 		Material& mat = intersects.front().material;
 
 		Colour amb = (mat.getAmbient() * (*ambient)) * mat.getAmbientCoeff() * ka;
 		Colour diffuse;
 		Colour specular;
 
-		float fresnelTerm = intersects.front().direction * intersects.front().normal;
+		double fresnelTerm = intersects.front().direction * intersects.front().normal;
 
 		vector<IntersectData>::iterator iter;
-		for (iter = intersects.begin(); iter != intersects.end(); iter++) {
-			if (iter->light != 0) {
+		for (iter = intersects.begin(); iter != intersects.end(); iter++)
+		{
+			if (iter->light != 0)
+			{
 				diffuse += iter->light->color * mat.getDiffuse() * (iter->incoming * iter->normal);
 
 
 				Vector3 halfway = iter->direction + iter->incoming;
 				halfway.normalize();
 
-				float NdotL	= iter->normal * iter->incoming;
-				float NdotH = iter->normal * halfway;
-				float NdotV = iter->normal * iter->direction;
-				float VdotH = iter->direction * halfway;
-				float rSq = roughValue * roughValue;
+				double NdotL	= iter->normal * iter->incoming;
+				double NdotH = iter->normal * halfway;
+				double NdotV = iter->normal * iter->direction;
+				double VdotH = iter->direction * halfway;
+				double rSq = roughValue * roughValue;
 
 
-				float temp1 = (2 * NdotH * NdotV) / VdotH;
-				float temp2 = (2 * NdotH * NdotL) / VdotH;
-				float geo = min(1.0f, min(temp1, temp2));
+				double temp1 = (2 * NdotH * NdotV) / VdotH;
+				double temp2 = (2 * NdotH * NdotL) / VdotH;
+				double geo = min(1.0, min(temp1, temp2));
 
-				float roughness;
+				double roughness;
 
-				if (roughMode == RoughMode::BECKMANN) {
-					float rA = 1.0f / (4.0f * rSq * pow(NdotH, 4));
-					float rB = NdotH * NdotH - 1.0f;
-					float rC = rSq * NdotH * NdotH;
+				if (roughMode == ROUGHMODE_BECKMANN)
+				{
+					double rA = 1.0 / (4.0 * rSq * pow(NdotH, 4));
+					double rB = NdotH * NdotH - 1.0;
+					double rC = rSq * NdotH * NdotH;
 
 					roughness = rA * exp(rB / rC);
-				} else if (roughMode == RoughMode::GAUSSIAN) {
-					float c = 1.0f;
-					float alpha = acos(iter->normal * halfway);
+				}
+				else if (roughMode == ROUGHMODE_GAUSSIAN)
+				{
+					double c = 1.0;
+					double alpha = acos(iter->normal * halfway);
 
-					roughness = c * exp( -(alpha / rSq) );
+					roughness = c * exp(-(alpha / rSq));
 				}
 
-				float fresnel = pow(1.0f - VdotH, 5.0f);
-				fresnel *= (1.0f - fresnelTerm);
+				double fresnel = pow(1.0 - VdotH, 5.0);
+				fresnel *= (1.0 - fresnelTerm);
 				fresnel += fresnelTerm;
 
 
-				float Rs = (fresnel * geo * roughness) / (NdotV * NdotL);
+				double Rs = (fresnel * geo * roughness) / (NdotV * NdotL);
 
-				specular = max(0.0f, NdotL) * (iter->light->color * mat.getSpecular() * Rs);
+				specular = max(0.0, NdotL) * (iter->light->color * mat.getSpecular() * Rs);
 			}
 		}
 
@@ -91,7 +97,7 @@ public:
 	}
 
 
-	float roughValue;
+	double roughValue;
 	RoughMode roughMode;
 };
 

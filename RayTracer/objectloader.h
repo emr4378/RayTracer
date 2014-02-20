@@ -29,29 +29,29 @@ public:
 	ObjectLoader();
 	~ObjectLoader();
 
-	
-	void load(char * filename, World * world, Camera * cam);
+
+	void load(char* filename, World* world, Camera* cam);
 
 private:
 	/**
 	 * convert2P
 	 * Converts the kixor object "obj_vector" into it's equivalent Point3;
 	 */
-	Point3 convert2P(obj_vector * v);
+	Point3 convert2P(obj_vector* v);
 
 	/**
 	 * convert2V
 	 * Converts the kixor object "obj_vector" into it's equivalent
 	 */
-	Vector3 convert2V(obj_vector * v);
+	Vector3 convert2V(obj_vector* v);
 
 	/**
 	 * convert2M
 	 * Converts the kixor object "obj_material" into it's equivalent
 	 */
-	Material * convert2M(obj_material * m);
+	Material* convert2M(obj_material* m);
 
-	objLoader * objData;	//the kixor object loader to be used
+	objLoader* objData;	//the kixor object loader to be used
 };
 
 #endif

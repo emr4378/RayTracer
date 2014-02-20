@@ -21,14 +21,14 @@ public:
 	World();
 	~World();
 
-	void add(Object3D * obj);
-	void remove(Object3D * obj);
-	void add(LightSource * light);
-	void remove(LightSource * light);
-	void transformAllObjects(float** m);
+	void add(Object3D* obj);
+	void remove(Object3D* obj);
+	void add(LightSource* light);
+	void remove(LightSource* light);
+	void transformAllObjects(double** m);
 
-	vector<Object3D *> objectList;
-	vector<LightSource *> lightList;
+	vector<Object3D*> objectList;
+	vector<LightSource*> lightList;
 
 	//TODO: Attributes List
 };

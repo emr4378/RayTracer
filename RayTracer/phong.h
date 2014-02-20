@@ -13,15 +13,17 @@
  *
  * @author Eduardo Rodrigues - emr4378
  */
-class Phong : public IlluminationModel {
+class Phong : public IlluminationModel
+{
 public:
 	Phong() : IlluminationModel() {}
 
-	Phong(Colour * amb) : IlluminationModel(amb) {}
+	Phong(Colour* amb) : IlluminationModel(amb) {}
 
 	~Phong() {}
 
-	Colour illuminate(vector<IntersectData> intersects) {
+	Colour illuminate(vector<IntersectData> intersects)
+	{
 		Material& mat = intersects.front().material;
 
 		Colour amb = (mat.getAmbient() * (*ambient)) * mat.getAmbientCoeff() * ka;
@@ -29,11 +31,14 @@ public:
 		Colour specular;
 
 		vector<IntersectData>::iterator iter;
-		for (iter = intersects.begin(); iter != intersects.end(); iter++) {
-			if (iter->light != 0) {
+		for (iter = intersects.begin(); iter != intersects.end(); iter++)
+		{
+			if (iter->light != 0)
+			{
 				diffuse += iter->light->color * mat.getDiffuse() * (iter->incoming * iter->normal);
-				float dot = iter->reflection * iter->direction;
-				if (dot <= 0) {
+				double dot = iter->reflection * iter->direction;
+				if (dot <= 0)
+				{
 					specular += iter->light->color * mat.getSpecular() * powf(dot, mat.getSpecularSizeCoeff()) * powf(dot, ke);
 				}
 			}

@@ -8,7 +8,7 @@
  *
  * The easiest illumination model, Flat illumination uses only the ambient
  * component of materials and lights illuminate the scene.
- * 
+ *
  * @author Eduardo Rodrigues - emr4378
  */
 class Flat :
@@ -19,7 +19,8 @@ public:
 
 	~Flat() {}
 
-	Colour illuminate(vector<IntersectData> intersects) {
+	Colour illuminate(vector<IntersectData> intersects)
+	{
 		Material& mat = intersects.front().material;
 		return (mat.getAmbient() * (*ambient));
 	}

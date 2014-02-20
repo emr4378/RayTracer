@@ -26,18 +26,18 @@ public:
 	 * @param numTiles - int, the number of times to tile (possibly redundant!)
 	 * @return Texture* - a pointer to the tile texture generated
 	 */
-	static Texture * generateTiles(int width, int height, int tileSize, int numTiles, Colour colours[]);
+	static Texture* generateTiles(int width, int height, int tileSize, int numTiles, Colour colours[]);
 
 	Texture(int width, int height);
-	Texture(int width, int height, char * imgPath);
+	Texture(int width, int height, char* imgPath);
 	~Texture();
 
 	/*BEGIN: Getters & Setters*/
 	int getWidth();
 	int getHeight();
 
-	Colour& getColour(float u, float v) const;
-	void setColour(float u, float v, Colour& col);
+	void getColour(double u, double v, Colour& col) const;
+	void setColour(double u, double v, Colour& col);
 
 	bool isWrapping();
 	void setWrapping(bool w);
@@ -46,7 +46,7 @@ public:
 private:
 	int _width;
 	int _height;
-	unsigned char * _data;	//the texture map, in array form
+	unsigned char* _data;	//the texture map, in array form
 	bool wrap;
 };
 

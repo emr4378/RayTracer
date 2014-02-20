@@ -11,7 +11,7 @@
 #include "flat.h"
 #include "tone.h"
 
-#define SS_OFF	0.005f
+#define SS_OFF	0.005
 #define DF_BG_R	0
 #define DF_BG_G	0
 #define DF_BG_B	0
@@ -31,14 +31,14 @@
 class Camera
 {
 public:
-	
+
 	Camera();
-	Camera(IlluminationModel * m);
+	Camera(IlluminationModel* m);
 	~Camera();
 
 	/*
 	 * lookAt
-	 * 
+	 *
 	 * Similar to gluLookAt, orients the camera to focus on a point
 	 *
 	 * @param p - Point3, the center position of the camera
@@ -49,20 +49,20 @@ public:
 
 	/*
 	 * lookAt
-	 * 
+	 *
 	 * Similar to gluLookAt, orients the camera to focus on a point
 	 *
-	 * @param x,y,z - float, the coordinates of the camera
-	 * @param cx, cy, cz - float, the coordinates of point to look at
-	 * @param ux, uy, uz - float, the componenents of the up vector
+	 * @param x,y,z - double, the coordinates of the camera
+	 * @param cx, cy, cz - double, the coordinates of point to look at
+	 * @param ux, uy, uz - double, the componenents of the up vector
 	 */
-	void lookAt(float x, float y, float z,
-				float cx, float cy, float cz,
-				float ux, float uy, float uz);
+	void lookAt(double x, double y, double z,
+	            double cx, double cy, double cz,
+	            double ux, double uy, double uz);
 
 	/**
 	 * setOrientation
-	 * 
+	 *
 	 * Orients the camera, given it's center point and up and forward vectors
 	 *
 	 * @param p - Point3, the center position of the cmaera
@@ -73,39 +73,39 @@ public:
 
 	/**
 	 * setOrientation
-	 * 
+	 *
 	 * Orients the camera, given it's center point and up and forward vectors
 	 *
-	 * @param x,y,z - float, the coordinates of the camera
-	 * @param fx, fy, fz - float, the components of the forward vector
-	 * @param ux, uy, uz - float, the componenents of the up vector
+	 * @param x,y,z - double, the coordinates of the camera
+	 * @param fx, fy, fz - double, the components of the forward vector
+	 * @param ux, uy, uz - double, the componenents of the up vector
 	 */
-	void setOrientation(float x, float y, float z,
-						float fx, float fy, float fz,
-						float ux, float uy, float uz);
+	void setOrientation(double x, double y, double z,
+	                    double fx, double fy, double fz,
+	                    double ux, double uy, double uz);
 
 	/**
 	 * setOrientation
-	 * 
+	 *
 	 * Similar to gluFrustum, sets up the viewing plane position and dimensions
 	 *
-	 * @param wid, hei - float, the width and height of the image plane
-	 * @param zFar - float, how far away the image plane is
-	 * @param pSize - float, the pixel size to be used.
+	 * @param wid, hei - double, the width and height of the image plane
+	 * @param zFar - double, how far away the image plane is
+	 * @param pSize - double, the pixel size to be used.
 	 */
-	void setDimensions(float wid, float hei, float zFar, float pSize);
+	void setDimensions(double wid, double hei, double zFar, double pSize);
 
 	/**
 	 * setPerspective
 	 *
 	 * Similar to gluPerspective, sets up the view plane position and dimensions
 	 *
-	 * @param fovy - float, the field of view of the camera (left-right spread angle)
-	 * @param aspect - float, the aspect ratio of the screen
-	 * @param zNear - float, how far away the image plane is
-	 * @param pSize - float, the pixel size to be used
+	 * @param fovy - double, the field of view of the camera (left-right spread angle)
+	 * @param aspect - double, the aspect ratio of the screen
+	 * @param zNear - double, how far away the image plane is
+	 * @param pSize - double, the pixel size to be used
 	 */
-	void setPerspective(float fovy, float aspect, float zNear, float pSize);
+	void setPerspective(double fovy, double aspect, double zNear, double pSize);
 
 	/**
 	 * render
@@ -116,39 +116,39 @@ public:
 	 *
 	 * @param sWid, sHei - the dimensions of the scene to be rendered
 	 */
-	Colour * render(float sWid, float sHei);
+	Colour* render(double sWid, double sHei);
 
 
 	/*BEGIN: Getters & Setters*/
 	Point3& getPosition();
 	const Point3& getPosition() const;
 	void setPosition(Point3 p);
-	void setPosition(float x, float y, float z);
+	void setPosition(double x, double y, double z);
 
 	Vector3& getForward();
 	const Vector3& getForward() const;
 	void setForward(Vector3 f);
-	void setForward(float x, float y, float z);
+	void setForward(double x, double y, double z);
 
 	Vector3& getUp();
 	const Vector3& getUp() const;
 	void setUp(Vector3 u);
-	void setUp(float x, float y, float z);
+	void setUp(double x, double y, double z);
 
 	int getRecurseDepth();
 	void setRecurseDepth(int d);
 
-	float getWidth();
-	void setWidth(float w);
+	double getWidth();
+	void setWidth(double w);
 
-	float getHeight();
-	void setHeight(float h);
+	double getHeight();
+	void setHeight(double h);
 
-	float getDistance();
-	void setDistance(float d);
+	double getDistance();
+	void setDistance(double d);
 
-	float getPixelSize();
-	void setPixelSize(float p);
+	double getPixelSize();
+	void setPixelSize(double p);
 
 	bool isShadowsEnabled();
 	void setShadowsEnabled(bool s);
@@ -161,41 +161,41 @@ public:
 	Colour& getBGColor();
 	const Colour& getBGColor() const;
 	void setBGColor(Colour c);
-	void setBGColor(float r, float g, float b);
+	void setBGColor(double r, double g, double b);
 
-	IlluminationModel * getIlluminationModel();
+	IlluminationModel* getIlluminationModel();
 	void setIlluminationModel(IlluminationModel& m);
-	void setIlluminationModel(IlluminationModel * m);
+	void setIlluminationModel(IlluminationModel* m);
 
-	Tone * getTone();
+	Tone* getTone();
 	void setTone(Tone& t);
-	void setTone(Tone * t);
+	void setTone(Tone* t);
 
-	World * getWorld();
+	World* getWorld();
 	void setWorld(World& w);
-	void setWorld(World * w);
+	void setWorld(World* w);
 	/*END: Getters & Setters*/
-	
 
 
-	
+
+
 private:
-	Colour illuminate(Object3D * prevHit, const Ray& oRay, int depth);
+	Colour illuminate(Object3D* prevHit, const Ray& oRay, int depth);
 
 	Point3 position;
 	Vector3 forward;
 	Vector3 up;
 	int recurseDepth;			//the max number of reflections/transmissions that can occur
-	float width;
-	float height;
-	float distance;
-	float pixelSize;
+	double width;
+	double height;
+	double distance;
+	double pixelSize;
 	bool shadows;				//if true, shadows are rendered
 	bool superSample;			//if true, super sampling is used (4 samples)
 	Colour bgColor;				//the color that is used if the cast ray intersects nothing
-	IlluminationModel * model;	//Illumination model to be used on all objects in the scene
-	Tone * tone;				//Tone Reproduction to be used in final image
-	World * world;
+	IlluminationModel* model;	//Illumination model to be used on all objects in the scene
+	Tone* tone;				//Tone Reproduction to be used in final image
+	World* world;
 };
 
 #endif

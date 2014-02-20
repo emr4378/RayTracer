@@ -14,7 +14,8 @@
  *
  * @author Eduardo Rodrigues - emr4378
  */
-class IntersectData {
+class IntersectData
+{
 public:
 	IntersectData() : point(), direction(), normal(), light(0) {}
 	IntersectData(Point3 p, Vector3 d, Vector3 n) : point(p), direction(d), normal(n), light(0) {}
@@ -25,7 +26,7 @@ public:
 	Vector3 normal;		//surface normal at point
 	Vector3 incoming;	//light to point
 	Vector3 reflection;	//reflection of incoming
-	LightSource * light;
+	LightSource* light;
 	Material material;
 };
 

@@ -12,7 +12,7 @@
  * A representation of a generic object in 3 dimensions. Will be the base class
  * of every 3d object this system can support. Stores the information that all
  * objects will have, such as Material, Texture, and which to use
- * 
+ *
  * @author Eduardo Rodrigues - emr4378
  */
 class Object3D
@@ -20,14 +20,17 @@ class Object3D
 
 public:
 	Object3D() : material(0), texture(0) {}
-	Object3D(Material * m) : material(m), texture(0) {}
-	Object3D(Texture * t) : material(0), texture(t), useTexture(true) {}
-	Object3D(Material * m, Texture * t) : material(m), texture(t) {
-		if (t != 0) {
+	Object3D(Material* m) : material(m), texture(0) {}
+	Object3D(Texture* t) : material(0), texture(t), useTexture(true) {}
+	Object3D(Material* m, Texture* t) : material(m), texture(t)
+	{
+		if (t != 0)
+		{
 			useTexture = true;
 		}
 	}
-	virtual ~Object3D() {
+	virtual ~Object3D()
+	{
 		delete material;
 		delete texture;
 	}
@@ -38,9 +41,9 @@ public:
 	 * Determines what time, if any, the given ray has intersected with this object
 	 *
 	 * @param ray - Ray, from the camera outwards, to be checked against
-	 * @return float - time of intersection of there is one, -1 otherwise
+	 * @return double - time of intersection of there is one, -1 otherwise
 	 */
-	virtual float intersect(Ray ray) const = 0;
+	virtual double intersect(Ray ray) const = 0;
 
 	/**
 	 * evaluateIntersect
@@ -52,46 +55,54 @@ public:
 	 * Also where (u, v) coordinate determination is done
 	 *
 	 * @param ray - Ray, the ray being cast towards the object
-	 * @param t - float, the time of intersection
+	 * @param t - double, the time of intersection
 	 * @param return IntersectData, with valid point, direction, and normal
 	 */
-	virtual IntersectData evaluateIntersect(Ray ray, float t) const = 0;
+	virtual IntersectData evaluateIntersect(Ray ray, double t) const = 0;
 
 
 	/*BEGIN: Getters & Setters*/
-	const Material const * getMaterial() const {
+	Material const* getMaterial() const
+	{
 		return material;
 	}
-	Material * getMaterial() {
+	Material* getMaterial()
+	{
 		return material;
 	}
-	void setMaterial(Material * m) {
+	void setMaterial(Material* m)
+	{
 		delete material;
 		material = m;
 	}
 
-	const Texture const * getTexture() const {
+	Texture const* getTexture() const
+	{
 		return texture;
 	}
-	Texture * getTexture() {
+	Texture* getTexture()
+	{
 		return texture;
 	}
-	void setTexture(Texture * t) {
+	void setTexture(Texture* t)
+	{
 		delete texture;
 		texture = t;
 	}
 
-	bool getTextureUse() {
+	bool getTextureUse()
+	{
 		return useTexture;
 	}
-	void setTextureUse(bool u) {
+	void setTextureUse(bool u)
+	{
 		useTexture = u;
 	}
 	/*END: Getters & Setters*/
 
 protected:
-	Material * material;
-	Texture * texture;
+	Material* material;
+	Texture* texture;
 	bool useTexture;
 };
 

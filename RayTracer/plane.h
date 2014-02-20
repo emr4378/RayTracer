@@ -17,12 +17,12 @@ class Plane :
 {
 public:
 	Plane();
-	Plane(Point3 aPoint, Vector3 n, Material * m, Texture * t);
+	Plane(Point3 aPoint, Vector3 n, Material* m, Texture* t);
 
 	virtual ~Plane();
 
-	float intersect(Ray ray) const;
-	IntersectData evaluateIntersect(Ray ray, float t) const;
+	double intersect(Ray ray) const;
+	IntersectData evaluateIntersect(Ray ray, double t) const;
 
 	Vector3 normal;
 	Vector3 up;

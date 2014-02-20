@@ -16,17 +16,17 @@ class Sphere :
 {
 public:
 	Sphere();
-	Sphere(float x, float y, float z, float r, Material * m);
-	Sphere(float x, float y, float z, float r, Texture * t);
-	Sphere(float x, float y, float z, float r, Material * m, Texture * t);
+	Sphere(double x, double y, double z, double r, Material* m);
+	Sphere(double x, double y, double z, double r, Texture* t);
+	Sphere(double x, double y, double z, double r, Material* m, Texture* t);
 
 	virtual ~Sphere();
 
-	float intersect(Ray ray) const;
-	IntersectData evaluateIntersect(Ray ray, float t) const;
+	double intersect(Ray ray) const;
+	IntersectData evaluateIntersect(Ray ray, double t) const;
 
 	Point3 center;
-	float radius;
+	double radius;
 };
 
 #endif

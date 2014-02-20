@@ -18,70 +18,83 @@
  *
  * @author Eduardo Rodrigues - emr4378
  */
-class IlluminationModel {
+class IlluminationModel
+{
 public:
-	IlluminationModel() : ka(0.3), kd(0.6), ks(1), ke(20) {
+	IlluminationModel() : ka(0.3), kd(0.6), ks(1), ke(20)
+	{
 		ambient = new Colour(1, 1, 1);
 	}
-	IlluminationModel(Colour * amb) : ambient(amb), ka(0.3), kd(0.6), ks(.5), ke(20) {}
+	IlluminationModel(Colour* amb) : ambient(amb), ka(0.3), kd(0.6), ks(.5), ke(20) {}
 	virtual ~IlluminationModel() {}
 
 	/**
 	 * illuminate - abstract
 	 *
-	 * Determines the color of a pixel, using the IntersectData and child 
+	 * Determines the color of a pixel, using the IntersectData and child
 	 * class' implementation of this method
-	 * 
+	 *
 	 * @param intersects - vector<IntersectData>, 1 for each light source in the scene
 	 */
 	virtual Colour illuminate(vector<IntersectData> intersects) = 0;
 
 	/*BEGIN: Getters & Setters*/
-	const Colour& getAmbient() const {
+	const Colour& getAmbient() const
+	{
 		return *ambient;
 	}
-	Colour& getAmbient() {
+	Colour& getAmbient()
+	{
 		return *ambient;
 	}
-	void setAmbient(Colour * amb) {
+	void setAmbient(Colour* amb)
+	{
 		ambient = amb;
 	}
 
-	float getAmbientCoeff() {
+	double getAmbientCoeff()
+	{
 		return ka;
 	}
-	void setAmbientCoeff(float k) {
+	void setAmbientCoeff(double k)
+	{
 		ka = k;
 	}
 
-	float getDiffuseCoeff() {
+	double getDiffuseCoeff()
+	{
 		return kd;
 	}
-	void setDiffuseCoeff(float k) {
+	void setDiffuseCoeff(double k)
+	{
 		kd = k;
 	}
 
-	float getSpecularCoeff() {
+	double getSpecularCoeff()
+	{
 		return ks;
 	}
-	void setSpecularCoeff(float k) {
+	void setSpecularCoeff(double k)
+	{
 		ks = k;
 	}
 
-	float getSpecularSizeCoeff() {
+	double getSpecularSizeCoeff()
+	{
 		return ke;
 	}
-	void setSpecularSizeCoeff(float k) {
+	void setSpecularSizeCoeff(double k)
+	{
 		ke = k;
 	}
 	/*END: Getters & Setters*/
 
 protected:
-	Colour * ambient;
-	float ka;
-	float kd;
-	float ks;
-	float ke;
+	Colour* ambient;
+	double ka;
+	double kd;
+	double ks;
+	double ke;
 };
 
 #endif

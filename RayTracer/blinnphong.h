@@ -17,11 +17,12 @@ class BlinnPhong :
 {
 public:
 	BlinnPhong() : IlluminationModel() {}
-	BlinnPhong(Colour * amb) : IlluminationModel(amb) {}
+	BlinnPhong(Colour* amb) : IlluminationModel(amb) {}
 
 	~BlinnPhong() {}
 
-	Colour illuminate(vector<IntersectData> intersects) {
+	Colour illuminate(vector<IntersectData> intersects)
+	{
 		Material& mat = intersects.front().material;
 
 		Colour amb = (mat.getAmbient() * (*ambient)) * mat.getAmbientCoeff() * ka;
@@ -29,14 +30,17 @@ public:
 		Colour specular;
 
 		vector<IntersectData>::iterator iter;
-		for (iter = intersects.begin(); iter != intersects.end(); iter++) {
-			if (iter->light != 0) {
+		for (iter = intersects.begin(); iter != intersects.end(); iter++)
+		{
+			if (iter->light != 0)
+			{
 				Vector3 halfway = iter->direction + iter->incoming;
 				halfway.normalize();
 
 				diffuse += iter->light->color * mat.getDiffuse() * (iter->incoming * iter->normal);
-				float dot = iter->normal * halfway;
-				if (dot >= 0) {
+				double dot = iter->normal * halfway;
+				if (dot >= 0)
+				{
 					specular += iter->light->color * mat.getSpecular() * powf(dot, mat.getSpecularSizeCoeff()) * powf(dot, ke);
 				}
 			}
