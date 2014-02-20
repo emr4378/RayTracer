@@ -95,9 +95,6 @@
     <ClInclude Include="texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Libraries\SOIL.h">
-      <Filter>Libraries</Filter>
-    </ClInclude>
     <ClInclude Include="Libraries\objTester\string_extra.h">
       <Filter>Libraries\objTester</Filter>
     </ClInclude>
@@ -158,10 +155,5 @@
     <ClInclude Include="cooktorrance.h">
       <Filter>Illumination Models</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="Libraries\SOIL.lib">
-      <Filter>Libraries</Filter>
-    </Library>
   </ItemGroup>
 </Project>

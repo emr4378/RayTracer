@@ -29,7 +29,6 @@ public:
 	static Texture* generateTiles(int width, int height, int tileSize, int numTiles, Colour colours[]);
 
 	Texture(int width, int height);
-	Texture(int width, int height, char* imgPath);
 	~Texture();
 
 	/*BEGIN: Getters & Setters*/
