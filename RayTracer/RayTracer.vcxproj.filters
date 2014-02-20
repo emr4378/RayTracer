@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Libraries">
+      <UniqueIdentifier>{0f03cb9f-783b-492c-8537-48940514b838}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\objTester">
+      <UniqueIdentifier>{761056e2-5c04-4576-bb5a-017e90aa1a5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Illumination Models">
+      <UniqueIdentifier>{1298182b-2e8e-447d-9a48-eeaeaef4d9da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Types">
+      <UniqueIdentifier>{5a625c5a-8520-426f-8f2f-b770a8475f15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImageTones">
+      <UniqueIdentifier>{c67e4729-3730-4eb2-84f4-f374e6f324a5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="raytracer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="world.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\objTester\list.cpp">
+      <Filter>Libraries\objTester</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\objTester\obj_parser.cpp">
+      <Filter>Libraries\objTester</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\objTester\objLoader.cpp">
+      <Filter>Libraries\objTester</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\objTester\string_extra.cpp">
+      <Filter>Libraries\objTester</Filter>
+    </ClCompile>
+    <ClCompile Include="objectloader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cylinder.cpp">
+      <Filter>Object Types</Filter>
+    </ClCompile>
+    <ClCompile Include="plane.cpp">
+      <Filter>Object Types</Filter>
+    </ClCompile>
+    <ClCompile Include="polygon3D.cpp">
+      <Filter>Object Types</Filter>
+    </ClCompile>
+    <ClCompile Include="sphere.cpp">
+      <Filter>Object Types</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="vecmath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="colour.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lightsource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="intersectdata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\SOIL.h">
+      <Filter>Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\objTester\string_extra.h">
+      <Filter>Libraries\objTester</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\objTester\list.h">
+      <Filter>Libraries\objTester</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\objTester\obj_parser.h">
+      <Filter>Libraries\objTester</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\objTester\objLoader.h">
+      <Filter>Libraries\objTester</Filter>
+    </ClInclude>
+    <ClInclude Include="objectloader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="world.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="object3D.h">
+      <Filter>Object Types</Filter>
+    </ClInclude>
+    <ClInclude Include="plane.h">
+      <Filter>Object Types</Filter>
+    </ClInclude>
+    <ClInclude Include="polygon3D.h">
+      <Filter>Object Types</Filter>
+    </ClInclude>
+    <ClInclude Include="cylinder.h">
+      <Filter>Object Types</Filter>
+    </ClInclude>
+    <ClInclude Include="constant.h">
+      <Filter>Illumination Models</Filter>
+    </ClInclude>
+    <ClInclude Include="phong.h">
+      <Filter>Illumination Models</Filter>
+    </ClInclude>
+    <ClInclude Include="flat.h">
+      <Filter>Illumination Models</Filter>
+    </ClInclude>
+    <ClInclude Include="illuminationmodel.h">
+      <Filter>Illumination Models</Filter>
+    </ClInclude>
+    <ClInclude Include="tone.h">
+      <Filter>ImageTones</Filter>
+    </ClInclude>
+    <ClInclude Include="reinhardtone.h">
+      <Filter>ImageTones</Filter>
+    </ClInclude>
+    <ClInclude Include="wardtone.h">
+      <Filter>ImageTones</Filter>
+    </ClInclude>
+    <ClInclude Include="sphere.h">
+      <Filter>Object Types</Filter>
+    </ClInclude>
+    <ClInclude Include="blinnphong.h">
+      <Filter>Illumination Models</Filter>
+    </ClInclude>
+    <ClInclude Include="cooktorrance.h">
+      <Filter>Illumination Models</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Libraries\SOIL.lib">
+      <Filter>Libraries</Filter>
+    </Library>
+  </ItemGroup>
+</Project>
